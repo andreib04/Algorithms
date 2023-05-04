@@ -43,6 +43,8 @@ namespace af_c6
             ViewMatrix(test2);
             ViewMatrix(test3);
 
+
+
             g.Refresh();
         }
 
@@ -50,7 +52,7 @@ namespace af_c6
         {
             foreach (string s in matrix.View())
                 listBox1.Items.Add(s);
-            listBox1.Items.Add("");
+            listBox1.Items.Add(" ");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,6 +64,30 @@ namespace af_c6
         {
             PointF G = test[0].G();
             g.g.DrawEllipse(Pens.Black, G.X - 2, G.Y - 2, 5, 5);
+            g.Refresh();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Poligon X = g.PoligonTranslate(test[0], new Point(200, 100));
+            X.Draw(g.g);
+
+            g.Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Poligon X = g.PoligonScale(test[0], 1, 2);
+            X.Draw(g.g);
+
+            g.Refresh();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Poligon X = g.PoligonScale(test[0], 0.2f, test[0].G());
+            X.Draw(g.g);
+
             g.Refresh();
         }
     }

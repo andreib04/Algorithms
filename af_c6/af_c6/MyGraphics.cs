@@ -16,6 +16,8 @@ namespace af_c6
         Color backColor = Color.White;
         public int resX, resY;
 
+
+
         public MyGraphics(PictureBox display)
         {
             this.display = display;
@@ -25,7 +27,43 @@ namespace af_c6
             g = Graphics.FromImage(bmp);
         }
 
-        
+        public Poligon PoligonTranslate(Poligon poligon, PointF translation)
+        {
+            Matrix C = new Matrix(poligon.length, translation);
+            Matrix P = poligon.PoligonToMatrix();
+            Matrix T = P + C;
+
+            return T.MatrixToPoligon();
+        }
+
+        public Poligon PoligonScale(Poligon poligon, float fx, float fy)
+        {
+            Matrix M = new Matrix(2, 2);
+            M.a[0, 0] = fx;
+            M.a[0, 1] = 0;
+            M.a[1, 0] = 0;
+            M.a[1,1] = fy;
+
+            Matrix P = poligon.PoligonToMatrix();
+            Matrix S = M * P;
+
+            return S.MatrixToPoligon();
+        }
+
+        public Poligon PoligonRotation(Poligon poligon, float angle, PointF center)
+        {
+            Matrix M = new Matrix(2, 2);
+            M.a[0, 0] = (float)Math.Cos(angle);
+            M.a[0, 1] = -(float)Math.Sin(angle);
+            M.a[1, 0] = (float)Math.Sin(angle);
+            M.a[1, 1] = (float)Math.Cos(angle);
+
+            Matrix C = new Matrix(poligon.length, center);
+            Matrix P = poligon.PoligonToMatrix();
+            Matrix R = M * (P - C) + C;
+
+            return R.MatrixToPoligon();
+        }
 
         public void Refresh()
         {

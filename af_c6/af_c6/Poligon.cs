@@ -8,10 +8,14 @@ using System.IO;
 
 namespace af_c6
 {
-    internal class Poligon
+    public class Poligon
     {
         public static Random rnd = new Random();
-        PointF[] points;
+        public PointF[] points;
+        public int length 
+        { 
+            get { return points.Length; } 
+        }
 
         public Poligon(int n, int max_X, int max_Y)
         {
@@ -20,6 +24,18 @@ namespace af_c6
             {
                 points[i] = new PointF(rnd.Next(max_X), rnd.Next(max_Y));
             }
+        }
+
+        public Matrix PoligonToMatrix()
+        {
+            Matrix toR = new Matrix(length);
+            for(int i = 0; i < length; i++)
+            {
+                toR.a[0, 1] = (int)points[i].X;
+                toR.a[1,i] = (int)points[i].Y;
+            }
+
+            return toR;
         }
 
         public Poligon(string fileName)
@@ -40,6 +56,11 @@ namespace af_c6
                 points[i] = new PointF(float.Parse(lines[i].Split(' ')[0]), float.Parse(lines[i].Split(' ')[1]));
             }
 
+        }
+
+        public Poligon(int a)
+        {
+            points = new PointF[a];
         }
 
         public float Perimetru()
