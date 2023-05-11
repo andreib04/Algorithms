@@ -8,45 +8,13 @@ namespace af_c9
 {
     /// <summary>
     /// ALGORITMUL GREEDY
+    /// Daca solutiile sunt corecte pentru tot setul de date, de regula nu este un algoritm mai bun
     /// </summary>
     internal class Program
     {
         static void Main(string[] args)
         {
-            string T = Console.ReadLine();
-            int toR = 0;
-
-            for(int i = 0; i < T.Length - 1; i++)
-            {
-                if (RtoV(T[i]) >= RtoV(T[i + 1]))
-                {
-                    toR += RtoV(T[i]);
-                }
-                else
-                {
-                    toR -= RtoV(T[i]);
-                }
-            }
-            toR += RtoV(T[T.Length - 1]);
-            Console.WriteLine(toR);
-        }
-
-        static int RtoV(char c)
-        {
-            switch (c)
-            {
-                case 'M':
-                case 'm': return 1000;
-                case 'D':
-                case 'd': return 500;
-                case 'C':
-                case 'c': return 100;
-                case 'L':
-                case 'l': return 50;
-                case 'X':
-                case 'x': return 10;
-            }
-            return -1;
+            
         }
 
         //se da o suma (s) si un set de valori (bancnote) v
@@ -107,7 +75,71 @@ namespace af_c9
         //MMCMCLXXIV
         static void P03()
         {
+            string T = Console.ReadLine();
+            int toR = 0;
 
+            for (int i = 0; i < T.Length - 1; i++)
+            {
+                if (RtoV(T[i]) >= RtoV(T[i + 1]))
+                {
+                    toR += RtoV(T[i]);
+                }
+                else
+                {
+                    toR -= RtoV(T[i]);
+                }
+            }
+            toR += RtoV(T[T.Length - 1]);
+            Console.WriteLine(toR);
+        }
+
+        static int RtoV(char c)
+        {
+            switch (c)
+            {
+                case 'M':
+                case 'm': return 1000;
+                case 'D':
+                case 'd': return 500;
+                case 'C':
+                case 'c': return 100;
+                case 'L':
+                case 'l': return 50;
+                case 'X':
+                case 'x': return 10;
+                case 'V':
+                case 'v': return 5;
+                case 'I':
+                case 'i': return 1;
+            }
+            return -1;
+        }
+
+        //prob4 
+        //se da un text
+        //ex: Ana are 5 mere si 25 pere
+        //   A         n         a      space
+        // 01000001 01101101 01100001 00100000 ...
+
+        //arbore
+        //numara aparitiile de caractere
+     
+
+
+        //se da un nr arab, sa se transforme in scrierea romana
+        //2917
+        static void P05()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] v = { 1000, 500, 100, 50, 10, 5, 1 };
+            int[] r = new int[v.Length];
+
+            for(int i = 0; i < v.Length; i++)
+            {
+                r[i] = n / v[i];
+                n = n % v[i];
+            }
+            //...
         }
     }
 }

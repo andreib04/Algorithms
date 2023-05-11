@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6BCF9714-EA66-49E0-98E4-7FC878527764}</ProjectGuid>
+    <ProjectGuid>{E7BBD8D3-F72B-41D5-AA60-7051DA86EDA8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>af_c9</RootNamespace>
-    <AssemblyName>af_c9</AssemblyName>
+    <RootNamespace>af_l9</RootNamespace>
+    <AssemblyName>af_l9</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

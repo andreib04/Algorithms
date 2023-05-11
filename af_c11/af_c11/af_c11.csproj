@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6BCF9714-EA66-49E0-98E4-7FC878527764}</ProjectGuid>
+    <ProjectGuid>{CE522237-D1E7-48B0-8E43-8AF6CB0F3F47}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>af_c9</RootNamespace>
-    <AssemblyName>af_c9</AssemblyName>
+    <RootNamespace>af_c11</RootNamespace>
+    <AssemblyName>af_c11</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Complex.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="spectacol.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace af_c9
+namespace af_l9
 {
     public class spectacol
     {
-        public int tInitial, tFinal;
+        public int tInitial;
+        public int tFinal;
 
         public spectacol(int tInitial, int tFinal)
         {
@@ -18,9 +19,7 @@ namespace af_c9
 
         public void View()
         {
-            Console.Write(tInitial+ " " + tFinal);
+            Console.WriteLine(tInitial + " " + tFinal); 
         }
-
-       
     }
 }
