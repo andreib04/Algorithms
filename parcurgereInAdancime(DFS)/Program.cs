@@ -57,9 +57,9 @@ namespace parcurgereInAdancime_DFS_
             //    Console.WriteLine("NU");
             //}
 
-            //for(int i = 0; i < n; i++)
+            //for (int i = 0; i < n; i++)
             //{
-            //    for(int j = 0; j < m; j++)
+            //    for (int j = 0; j < m; j++)
             //    {
             //        if (!b[i, j])
             //        {
@@ -73,12 +73,12 @@ namespace parcurgereInAdancime_DFS_
             //}
             //Console.WriteLine(max);
 
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                for(int j = 0; j < m; j++)
+                for (int j = 0; j < m; j++)
                 {
                     is1 = false; is2 = false; nr = 0;
-                    if (a[i,j] == 0 && !b[i, j])
+                    if (a[i, j] == 0 && !b[i, j])
                     {                                           //pb teritoriilor
                         pA_teritorii(i, j);
                         if (is1 && !is2)
@@ -100,7 +100,10 @@ namespace parcurgereInAdancime_DFS_
                     if (a[i,j] == 0)
                     {
                         if (i == n - 1 && j == m - 1 )  ok = true;
+                       
+                        
                         b[i, j] = true;
+                        
                         pA_parcurgere(i - 1, j);
                         pA_parcurgere(i, j + 1);
                         pA_parcurgere(i + 1, j);
